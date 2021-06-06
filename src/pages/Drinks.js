@@ -7,6 +7,7 @@ import {
   Stack,
   Flex,
   SimpleGrid,
+  AlertDialog,
 } from '@chakra-ui/react';
 import { useLocation, useHistory } from 'react-router-dom';
 import { connect } from 'react-redux';
@@ -31,8 +32,6 @@ function Drinks({ dispatch, state }) {
         d => d.strCategory === category
       );
 
-      console.log(drinksFiltered.length);
-
       if (drinksFiltered.length > 0) {
         setDrinks(drinksFiltered);
       } else {
@@ -51,7 +50,7 @@ function Drinks({ dispatch, state }) {
 
           setDrinks(data.drinks);
         } catch (error) {
-          console.log(error);
+          AlertDialog(error);
         }
       }
     };

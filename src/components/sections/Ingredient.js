@@ -1,10 +1,10 @@
-import { Code, Image, Stack } from '@chakra-ui/react';
 import React from 'react';
+import { Code, Image, Stack } from '@chakra-ui/react';
 
 const Ingredient = ({ measure, ingredient, visible }) => {
   if (visible) {
     return (
-      <Stack>
+      <Stack alignSelf="start">
         <Code>{measure}</Code>
         <Image
           alt={ingredient}

@@ -31,7 +31,6 @@ function DrinkDetails() {
     const LoadDrink = async () => {
       const { data } = await api.get(`lookup.php?i=${id}`);
 
-      console.log(data.drinks[0]);
       setDrink(data.drinks[0]);
     };
 

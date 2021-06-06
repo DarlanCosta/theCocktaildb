@@ -1,5 +1,11 @@
 import React, { useEffect, useState } from 'react';
-import { Image, Heading, Flex, SimpleGrid } from '@chakra-ui/react';
+import {
+  Image,
+  Heading,
+  Flex,
+  SimpleGrid,
+  AlertDialog,
+} from '@chakra-ui/react';
 import api from '../services/api';
 
 export default function Ingredients() {
@@ -12,7 +18,7 @@ export default function Ingredients() {
 
         setIngredients(data.drinks);
       } catch (error) {
-        console.log(error);
+        AlertDialog(error);
       }
     };
     loadIngredients();

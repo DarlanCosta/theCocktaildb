@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { Box, Flex, Text } from '@chakra-ui/react';
 import Logo from '../ui/Logo';
 import { ColorModeSwitcher } from '../ColorModeSwitcher';
+import { SearchBar } from './SearchBar';
 
 const MenuItem = ({ children, isLast, to = '/', ...rest }) => {
   return (
@@ -47,6 +48,7 @@ const Header = props => {
     <Flex
       as="nav"
       align="center"
+      justifyItems="center"
       justify="space-between"
       wrap="wrap"
       w="100%"
@@ -58,6 +60,7 @@ const Header = props => {
       <Flex align="center">
         <Logo w="100px" />
       </Flex>
+      <SearchBar />
 
       <Box display={{ base: 'block', md: 'none' }} onClick={toggleMenu}>
         {show ? <CloseIcon /> : <MenuIcon />}
