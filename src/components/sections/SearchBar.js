@@ -3,7 +3,7 @@ import {
   Input,
   Icon,
   Select,
-  Stack,
+  Box,
   HStack,
   AlertDialog,
 } from '@chakra-ui/react';
@@ -44,7 +44,7 @@ export function SearchBar() {
   }, [watch('search')]);
 
   return (
-    <Stack mt="12">
+    <Box mt="12">
       <HStack>
         <Input
           name="search"
@@ -72,6 +72,6 @@ export function SearchBar() {
           return <option value={opt.id}>{opt.drink}</option>;
         })}
       </Select>
-    </Stack>
+    </Box>
   );
 }

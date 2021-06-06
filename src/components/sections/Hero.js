@@ -24,15 +24,14 @@ export default function Hero({
       justify={{ base: 'center', md: 'space-around', xl: 'space-between' }}
       direction={{ base: 'column-reverse', md: 'row' }}
       wrap="no-wrap"
-      minH="40vh"
-      h="50%"
+      minH="70vh"
       px={8}
       mb={16}
       {...rest}
     >
       <Stack
         spacing={4}
-        // w={{ base: '80%', md: '40%' }}
+        w={{ base: '80%', md: '40%' }}
         align={['center', 'center', 'flex-start', 'flex-start']}
       >
         <Heading
@@ -79,7 +78,7 @@ export default function Hero({
       </Stack>
       <Box w={{ base: '80%', sm: '60%', md: '50%' }} mb={{ base: 12, md: 0 }}>
         {/* TODO: Make this change every X secs */}
-        <Image src={image} width="500px" rounded="1rem" shadow="2xl" />
+        <Image src={image} size="100%" rounded="1rem" shadow="2xl" />
       </Box>
     </Flex>
   );
