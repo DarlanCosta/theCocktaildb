@@ -30,7 +30,7 @@ function Landing({ dispatch }) {
     LoadRandomImage();
   }, []);
   return (
-    <LandingLayout>
+    <LandingLayout h="100vh">
       <Hero
         title="Make the best drink yourself"
         subtitle="With our recipes you and your guests will have fun enjoying the best drinks in the world."

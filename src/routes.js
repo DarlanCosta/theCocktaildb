@@ -7,6 +7,7 @@ import Categories from './pages/Categories';
 import Drinks from './pages/Drinks';
 import DrinkDatails from './pages/DrinkDetails';
 import Ingredients from './pages/Ingredients';
+import Videos from './pages/Videos';
 
 export default function Routes() {
   return (
@@ -18,6 +19,7 @@ export default function Routes() {
         <Route path="/drinks/" component={Drinks} />
         <Route path="/drinkdetails/" component={DrinkDatails} />
         <Route path="/ingredients/" component={Ingredients} />
+        <Route path="/videos/" component={Videos} />
       </Switch>
     </BrowserRouter>
   );
