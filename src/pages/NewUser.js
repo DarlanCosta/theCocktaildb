@@ -7,6 +7,7 @@ import {
   Heading,
   Code,
   toast,
+  useColorModeValue,
 } from '@chakra-ui/react';
 import { useForm } from 'react-hook-form';
 import * as yup from 'yup';
@@ -38,6 +39,7 @@ export default function NewUser() {
 
       history.push('/');
     } catch (error) {
+      console.log(error);
       toast({
         title: 'Atenção.',
         description: error.toString(),
@@ -71,12 +73,15 @@ export default function NewUser() {
         alignItems="center"
         onSubmit={handleSubmit(onSubmit)}
       >
-        <Heading mb="2.5">Novo usuário</Heading>
+        <Heading color={useColorModeValue('white', 'blue.700')} mb="2.5">
+          Novo usuário
+        </Heading>
         <Stack spacing="2">
           <Input
             name="name"
             type="name"
             placeholder="Name"
+            color="white"
             error={errors.name}
             {...register('name')}
           />
@@ -86,6 +91,7 @@ export default function NewUser() {
             name="email"
             type="email"
             placeholder="E-mail"
+            color="white"
             error={errors.email}
             {...register('email')}
           />
@@ -95,6 +101,7 @@ export default function NewUser() {
             name="pass"
             type="password"
             placeholder="Senha"
+            color="white"
             error={errors.password}
             {...register('pass')}
           />
@@ -104,6 +111,7 @@ export default function NewUser() {
             name="passconfirmation"
             type="password"
             placeholder="Confirmação de senha"
+            color="white"
             error={errors.passconfirmation}
             {...register('passconfirmation')}
           />
