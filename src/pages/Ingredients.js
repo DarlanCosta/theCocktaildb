@@ -6,7 +6,7 @@ import {
   SimpleGrid,
   AlertDialog,
 } from '@chakra-ui/react';
-import api from '../services/api';
+import api from '../services/ApiTheCocktailDB';
 
 export default function Ingredients() {
   const [ingredients, setIngredients] = useState([]);

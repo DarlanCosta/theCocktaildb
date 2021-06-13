@@ -1,9 +1,12 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Box, Flex, Text } from '@chakra-ui/react';
+import { Box, Flex, Text, HStack, Tooltip } from '@chakra-ui/react';
+import { useSelector } from 'react-redux';
+import { FaUser } from 'react-icons/fa';
 import Logo from '../ui/Logo';
 import { ColorModeSwitcher } from '../ColorModeSwitcher';
 import { SearchBar } from './SearchBar';
+import ExitButton from '../ExitButton';
 
 const MenuItem = ({ children, isLast, to = '/', ...rest }) => {
   return (
@@ -43,6 +46,7 @@ const MenuIcon = () => (
 const Header = props => {
   const [show, setShow] = React.useState(false);
   const toggleMenu = () => setShow(!show);
+  const user = useSelector(state => state.auth);
 
   return (
     <Flex
@@ -76,9 +80,6 @@ const Header = props => {
           direction={['column', 'row', 'row', 'row']}
           pt={[4, 4, 0, 0]}
         >
-          <MenuItem color="blue.300" to="/">
-            Home
-          </MenuItem>
           <MenuItem color="blue.300" to="/categories">
             Categories
           </MenuItem>
@@ -92,6 +93,13 @@ const Header = props => {
           <ColorModeSwitcher justifySelf="flex-end" />
         </Flex>
       </Box>
+
+      <Tooltip label="Sair" aria-label="Sair">
+        <HStack bg="blue.300" borderRadius="6" p="1" as="button">
+          <FaUser margin="2" size="20" />
+          <ExitButton label={user.name} />
+        </HStack>
+      </Tooltip>
     </Flex>
   );
 };

@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import {
+  Button,
   Code,
   Divider,
   Flex,
@@ -12,30 +13,45 @@ import {
   VStack,
 } from '@chakra-ui/react';
 import { useLocation } from 'react-router-dom';
-import { connect } from 'react-redux';
-import api from '../services/api';
+import { connect, useDispatch, useSelector } from 'react-redux';
+import { FaStar } from 'react-icons/fa';
+import api from '../services/ApiTheCocktailDB';
 import Ingredient from '../components/sections/Ingredient';
 
 function DrinkDetails() {
+  const query = useQuery();
+  const id = query.get('id');
+  const dispatch = useDispatch();
+  const updatedDrink = useSelector(state => state.drinks);
+
   function useQuery() {
     return new URLSearchParams(useLocation().search);
   }
 
-  const query = useQuery();
-
-  const id = query.get('id');
-
   const [drink, setDrink] = useState({});
+  const [favorite, setFavorite] = useState(false);
   // const [ingredient, setIngredient] = useState([]);
   useEffect(() => {
     const LoadDrink = async () => {
       const { data } = await api.get(`lookup.php?i=${id}`);
-
       setDrink(data.drinks[0]);
     };
 
     LoadDrink();
   }, []);
+
+  useEffect(() => {
+    const index = updatedDrink.findIndex(ind => ind.idDrink === id);
+    setFavorite(updatedDrink[index].favorite);
+  }, [updatedDrink]);
+
+  const handleFavorite = async () => {
+    dispatch({
+      type: '@drink/ADD_DRINKS_FAVORITE',
+      id: drink.idDrink,
+      toggle: !favorite,
+    });
+  };
 
   return (
     <Stack minH="100vh" direction={{ base: 'column', md: 'row' }}>
@@ -59,6 +75,10 @@ function DrinkDetails() {
               {drink.strDrink}
             </Text>
           </Heading>
+          {favorite && <FaStar size={30} />}
+          <Button onClick={handleFavorite}>
+            {favorite ? 'Remove favorite' : 'Add favorite'}{' '}
+          </Button>
 
           <Text
             alignSelf="self-start"

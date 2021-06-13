@@ -11,7 +11,7 @@ import {
 } from '@chakra-ui/react';
 import { useLocation, useHistory } from 'react-router-dom';
 import { connect } from 'react-redux';
-import api from '../services/api';
+import api from '../services/ApiTheCocktailDB';
 
 function Drinks({ dispatch, state }) {
   const [drinks, setDrinks] = useState([]);
@@ -44,7 +44,7 @@ function Drinks({ dispatch, state }) {
           }));
 
           dispatch({
-            type: 'ADD_DRINKS',
+            type: '@drink/ADD_DRINKS',
             drinks: sendDrinks,
           });
 

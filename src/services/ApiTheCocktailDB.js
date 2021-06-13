@@ -1,7 +1,7 @@
 import axios from 'axios';
 
-const api = axios.create({
+const ApiTheCocktailDB = axios.create({
   baseURL: 'https://www.thecocktaildb.com/api/json/v1/1/',
 });
 
-export default api;
+export default ApiTheCocktailDB;

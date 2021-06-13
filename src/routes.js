@@ -8,6 +8,7 @@ import Drinks from './pages/Drinks';
 import DrinkDatails from './pages/DrinkDetails';
 import Ingredients from './pages/Ingredients';
 import Videos from './pages/Videos';
+import NewUser from './pages/NewUser';
 
 export default function Routes() {
   return (
@@ -20,6 +21,7 @@ export default function Routes() {
         <Route path="/drinkdetails/" component={DrinkDatails} />
         <Route path="/ingredients/" component={Ingredients} />
         <Route path="/videos/" component={Videos} />
+        <Route path="/newuser/" component={NewUser} />
       </Switch>
     </BrowserRouter>
   );

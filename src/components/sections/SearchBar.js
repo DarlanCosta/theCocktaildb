@@ -11,7 +11,7 @@ import {
 import { useForm } from 'react-hook-form';
 import { RiSearchLine } from 'react-icons/ri';
 import { useHistory } from 'react-router-dom';
-import api from '../../services/api';
+import api from '../../services/ApiTheCocktailDB';
 
 export function SearchBar() {
   const [options, setOptions] = useState([]);
@@ -69,7 +69,11 @@ export function SearchBar() {
 
       <Select ref={selOption} visibility={visible}>
         {options.map(opt => {
-          return <option value={opt.id}>{opt.drink}</option>;
+          return (
+            <option key={opt.id} value={opt.id}>
+              {opt.drink}
+            </option>
+          );
         })}
       </Select>
     </Box>

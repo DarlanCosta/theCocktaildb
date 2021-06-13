@@ -1,26 +1,7 @@
-import React, { useEffect } from 'react';
-import {
-  Heading,
-  Flex,
-  SimpleGrid,
-  AspectRatio,
-  AlertDialog,
-} from '@chakra-ui/react';
-import api from '../services/api';
+import React from 'react';
+import { Heading, Flex, SimpleGrid, AspectRatio } from '@chakra-ui/react';
 
 export default function Ingredients() {
-  useEffect(() => {
-    const loadIngredients = async () => {
-      try {
-        const { data } = await api.get(`list.php?i=list`);
-        console.log(data);
-      } catch (error) {
-        AlertDialog(error);
-      }
-    };
-    loadIngredients();
-  }, []);
-
   return (
     <Flex direction="column" h="100vh">
       <Heading alignSelf="center" color="white" mt="10">
