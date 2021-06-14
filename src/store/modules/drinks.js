@@ -9,9 +9,12 @@ export default function drinks(state = [], action) {
     case '@drink/ADD_DRINKS_FAVORITE':
       return produce(state, draft => {
         const index = draft.findIndex(ind => ind.idDrink === action.id);
-        console.log(draft);
-        console.log(action);
-        draft[index].favorite = action.toggle;
+
+        if (index >= 0) {
+          draft[index].favorite = action.toggle;
+        } else {
+          draft.push({ favorite: action.toggle });
+        }
       });
 
     default:
