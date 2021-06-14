@@ -13,7 +13,7 @@ export default function drinks(state = [], action) {
         if (index >= 0) {
           draft[index].favorite = action.toggle;
         } else {
-          draft.push({ favorite: action.toggle });
+          draft.push({ idDrink: action.id, favorite: action.toggle });
         }
       });
 
