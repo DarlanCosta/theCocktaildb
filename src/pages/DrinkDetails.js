@@ -42,7 +42,12 @@ function DrinkDetails() {
 
   useEffect(() => {
     const index = updatedDrink.findIndex(ind => ind.idDrink === id);
-    setFavorite(!!updatedDrink[index].favorite);
+
+    try {
+      setFavorite(!!updatedDrink[index].favorite);
+    } catch (error) {
+      setFavorite(false);
+    }
   }, [updatedDrink]);
 
   const handleFavorite = async () => {
